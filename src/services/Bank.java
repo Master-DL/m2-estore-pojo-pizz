@@ -1,5 +1,6 @@
 package estore.services.interfaces.src.services;
 
+import estore.services.interfaces.src.data.Account;
 import estorePojo.exceptions.InsufficientBalanceException;
 import estorePojo.exceptions.UnknownAccountException;
 

@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import estore.services.interfaces.src.services.Client;
 import estorePojo.exceptions.UnknownItemException;
 
 public class Order {
