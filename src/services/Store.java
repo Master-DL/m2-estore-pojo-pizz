@@ -1,11 +1,12 @@
-package core;
+package estore.services.interfaces.src.services;
 
 	import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import estorePojo.exceptions.InsufficientBalanceException;
+	import estore.services.interfaces.src.data.ItemInStock;
+	import estorePojo.exceptions.InsufficientBalanceException;
 import estorePojo.exceptions.InvalidCartException;
 import estorePojo.exceptions.UnknownAccountException;
 import estorePojo.exceptions.UnknownItemException;

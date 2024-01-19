@@ -1,4 +1,4 @@
-package core;
+package estore.services.interfaces.src.services;
 
 import estorePojo.exceptions.InsufficientBalanceException;
 import estorePojo.exceptions.InvalidCartException;
