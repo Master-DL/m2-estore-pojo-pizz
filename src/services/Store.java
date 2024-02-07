@@ -12,7 +12,7 @@ import estorePojo.exceptions.InvalidCartException;
 import estorePojo.exceptions.UnknownAccountException;
 import estorePojo.exceptions.UnknownItemException;
 
-public class Store implements IFastOrder, IClassicOrder{
+public class Store implements IConsultItem, IFastOrder, IClassicOrder{
 
 	    private Provider provider;
 	    private Bank bank;
@@ -30,6 +30,8 @@ public class Store implements IFastOrder, IClassicOrder{
 	     * @return      the price of a given item
 	     * @throws UnknownItemException
 	     */
+
+		@Override
 	    public double getPrice( Object item ) throws UnknownItemException {
 	        return provider.getPrice(item);
 	    }
@@ -42,6 +44,7 @@ public class Store implements IFastOrder, IClassicOrder{
 	     *      directly from the store
 	     *      i.e. without having to re-order it from the provider
 	     */
+		@Override
 	    public boolean isAvailable( Object item, int qty )
 	    throws UnknownItemException {
 	        

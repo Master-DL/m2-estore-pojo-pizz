@@ -11,7 +11,7 @@ public class Main {
 		Provider prov = new Provider();
 		Bank bank = new Bank();
 		Store store = new Store(prov,bank);
-		Client cl = new Client(store);
+		Client cl = new Client(store, store, store);
 		
 		cl.run();
 

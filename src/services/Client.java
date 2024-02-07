@@ -9,10 +9,14 @@ import estorePojo.exceptions.UnknownItemException;
 
 public class Client implements Runnable {
 
-    private Store store;
+    private IConsultItem storeConsultItem;
+    private IClassicOrder storeClassicOrder;
+    private IFastOrder storeFastOrder;
 
-    public Client (Store s){
-    	store = s;
+    public Client (IConsultItem storeConsultItem, IClassicOrder storeClassicOrder, IFastOrder storeFastOrder){
+    	this.storeConsultItem = storeConsultItem;
+        this.storeClassicOrder = storeClassicOrder;
+        this.storeFastOrder = storeFastOrder;
     }
     // -----------------------------------------------------
     // Implementation of the Runnable interface
@@ -54,7 +58,7 @@ public class Client implements Runnable {
     InsufficientBalanceException, UnknownAccountException{
         
         System.out.println("Ordering "+qty+" "+item+" for "+account+"...");
-        Order order = store.oneShotOrder(this,item,qty,address,account);
+        Order order = storeFastOrder.oneShotOrder(this,item,qty,address,account);
         System.out.println(order);
     }
 
@@ -80,9 +84,9 @@ public class Client implements Runnable {
         Cart cart = null;
         for (int i = 0; i < items.length; i++) {
             System.out.println("Item: "+items[i]+", quantity: "+qties[i]);
-            cart = store.addItemToCart(cart,this,items[i],qties[i]);
+            cart = storeClassicOrder.addItemToCart(cart,this,items[i],qties[i]);
         }
-        Order order = store.pay(cart,address,account);
+        Order order = storeClassicOrder.pay(cart,address,account);
         System.out.println(order);
     }
 }
