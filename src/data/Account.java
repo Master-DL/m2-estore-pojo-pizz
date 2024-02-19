@@ -1,42 +1,33 @@
-package estore.services.implem;
+package estore.services.interfaces.src.data;
 
-import estore.services.interfaces.IAdminAccount;
-import estore.services.interfaces.IBusinessAccount;
-import estore.services.interfaces.IConsultAccount;
 import estorePojo.exceptions.InsufficientBalanceException;
 
-public class Account implements IConsultAccount, IAdminAccount, IBusinessAccount {
+public class Account {
 
     private double amount;
     private String owner;
 
-    @Override
-	public String getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    @Override
-	public void setOwner(String owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 
-    @Override
-	public double getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    @Override
-	public void setAmount(double amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
     
-    @Override
-	public void credit(double amount) {
+    public void credit(double amount) {
         this.amount += amount;        
     }
 
-    @Override
-	public void withdraw(double amount) throws InsufficientBalanceException {
+    public void withdraw(double amount) throws InsufficientBalanceException {
         if ( this.amount < amount )
             throw new InsufficientBalanceException(owner);
         this.amount -= amount;

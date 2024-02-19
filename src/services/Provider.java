@@ -1,14 +1,11 @@
-package estore.services.implem;
+package estore.services.interfaces.src.services;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import estore.services.interfaces.IConsultProvider;
-import estore.services.interfaces.IJustHaveALook;
-import estore.services.interfaces.IOrderProvider;
 import estorePojo.exceptions.UnknownItemException;
 
-public class Provider implements IConsultProvider, IOrderProvider {
+public class Provider {
 
 	private Map<String, Double> itemPrices = new HashMap<>();
 
@@ -26,7 +23,6 @@ public class Provider implements IConsultProvider, IOrderProvider {
 	 * @param item
 	 * @return
 	 */
-	@Override
 	public double getPrice(Object item) throws UnknownItemException {
 
 		if (!itemPrices.containsKey(item))
@@ -45,8 +41,7 @@ public class Provider implements IConsultProvider, IOrderProvider {
 	 * @param qty   the quantity ordered
 	 * @return the delay (in hours)
 	 */
-	@Override
-	public int order(IJustHaveALook store, Object item, int qty) throws UnknownItemException {
+	public int order(Store store, Object item, int qty) throws UnknownItemException {
 
 		if (!itemPrices.containsKey(item))
 			throw new UnknownItemException("Item " + item + " is not an item delivered by this provider.");

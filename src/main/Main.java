@@ -1,9 +1,9 @@
 package main;
 
-import core.Bank;
-import core.Client;
-import core.Provider;
-import core.Store;
+import estore.services.interfaces.src.services.Bank;
+import estore.services.interfaces.src.services.Client;
+import estore.services.interfaces.src.services.Provider;
+import estore.services.interfaces.src.services.Store;
 
 public class Main {
 
@@ -11,7 +11,7 @@ public class Main {
 		Provider prov = new Provider();
 		Bank bank = new Bank();
 		Store store = new Store(prov,bank);
-		Client cl = new Client(store);
+		Client cl = new Client(store, store, store);
 		
 		cl.run();
 
